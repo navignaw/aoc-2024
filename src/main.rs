@@ -1,5 +1,6 @@
 pub mod day1;
 pub mod day2;
+pub mod day3;
 
 use getopts::Options;
 use std::env;
@@ -43,6 +44,7 @@ fn main() {
     match day {
         1 => day1::main(input),
         2 => day2::main(input),
+        3 => day3::main(input),
         d => panic!("Unknown day: {}", d),
     }
 }
