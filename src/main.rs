@@ -3,6 +3,7 @@ pub mod day2;
 
 use getopts::Options;
 use std::env;
+use std::fs;
 
 fn print_usage(program: &str, opts: Options) {
     let brief = format!("Usage: {} FILE [options]", program);
@@ -28,12 +29,20 @@ fn main() {
         return;
     }
 
-    match matches.opt_get::<i32>("d") {
-        Ok(Some(d)) => match d {
-            1 => day1::main(),
-            2 => day2::main(),
-            d => panic!("Unknown day: {}", d),
-        },
-        _ => print_usage(&program, opts),
+    let day = match matches.opt_get::<i32>("d") {
+        Ok(Some(d)) => d,
+        _ => panic!("Invalid or missing day specified"),
+    };
+
+    let input_file = format!("data/day{}.txt", day);
+    let input = match fs::read_to_string(input_file.clone()) {
+        Ok(s) => s,
+        _ => panic!("Invalid or missing file {}", input_file),
+    };
+
+    match day {
+        1 => day1::main(input),
+        2 => day2::main(input),
+        d => panic!("Unknown day: {}", d),
     }
 }
