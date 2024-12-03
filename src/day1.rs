@@ -1001,7 +1001,7 @@ const INPUT_STR: &str = "82728   61150
 78106   31125
 44897   79242";
 
-fn part1(a: Vec<i32>, b: Vec<i32>) {
+fn part1(a: &Vec<i32>, b: &Vec<i32>) {
     // Sort the numbers in both a and b
     let mut a_sorted = a.to_vec();
     a_sorted.sort();
@@ -1018,14 +1018,14 @@ fn part1(a: Vec<i32>, b: Vec<i32>) {
     println!("Total diff: {}", total_diff);
 }
 
-fn counter(nums: Vec<i32>) -> HashMap<i32, i32> {
+fn counter(nums: &Vec<i32>) -> HashMap<i32, i32> {
     return nums.iter().fold(HashMap::new(), |mut counter, num| {
         *counter.entry(*num).or_insert(0) += 1;
         return counter;
     });
 }
 
-fn part2(a: Vec<i32>, b: Vec<i32>) {
+fn part2(a: &Vec<i32>, b: &Vec<i32>) {
     // Compute a counter of the number of times each number appears
     let counter_b = counter(b);
     let total_similarity: i32 = a
@@ -1052,6 +1052,6 @@ pub fn main() {
         })
         .unzip();
 
-    part1(a.clone(), b.clone());
-    part2(a.clone(), b.clone());
+    part1(&a, &b);
+    part2(&a, &b);
 }
