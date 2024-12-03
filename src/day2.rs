@@ -1080,5 +1080,6 @@ pub fn main() {
         })
         .collect();
 
-    part2(reports);
+    part1(reports.clone());
+    part2(reports.clone());
 }

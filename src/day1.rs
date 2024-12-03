@@ -1052,5 +1052,6 @@ pub fn main() {
         })
         .unzip();
 
-    part2(a, b);
+    part1(a.clone(), b.clone());
+    part2(a.clone(), b.clone());
 }
