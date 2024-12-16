@@ -4,6 +4,6 @@ for learning Rust
 
 ## Maxims
 
-- No for loops
+- Idiomatic rust code
 - No copilot
 - leaderboards considered harmful
