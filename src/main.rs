@@ -1,5 +1,6 @@
 pub mod day1;
 pub mod day11;
+pub mod day15;
 pub mod day2;
 pub mod day3;
 pub mod day4;
@@ -55,6 +56,7 @@ fn main() {
         7 => day7::main(input),
         9 => day9::main(input),
         11 => day11::main(input),
+        15 => day15::main(input),
         d => panic!("Unknown day: {}", d),
     }
 }
